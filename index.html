@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>PHP Code Lab</title>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        min-height: 100vh;
+        font-family: 'Times New Roman', Times, serif;
+        background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 20px;
+        color: #333;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    header h1 {
+        font-size: 3rem;
+        color: #4b0082;
+        letter-spacing: 2px;
+    }
+
+    header p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #555;
+    }
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+        max-width: 1000px;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 35px 25px;
+        border-radius: 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #4b0082;
+        width: 250px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+    }
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(75, 0, 130, 0.3);
+        color: #8a2be2;
+    }
+
+    footer {
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+</style>
+
+</head>
+
+<body>
+<header>
+    <h1>PHP Code Lab</h1>
+    <p>Practice PHP concepts with structured examples</p>
+</header>
+
+<div class="cards">
+
+    <a href="string/string-index.php" class="card">
+        String Functions
+    </a>
+
+    <a href="array/array.php" class="card">
+        Array Concepts
+    </a>
+
+    <a href="date/date.php" class="card">
+        Date Functions
+    </a>
+
+    <a href="get/get.html" class="card">
+        GET Method
+    </a>
+
+    <a href="post/post.html" class="card">
+        POST Method
+    </a>
+
+    <a href="db-connections/db.php" class="card">
+        Database (CRUD)
+    </a>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 PHP Code Lab</p>
+</footer>
+
+</body>
+
+</html>

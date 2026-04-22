@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GET Method - PHP Code Lab</title>
+
+<style>
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 380px;
+}
+
+h2 {
+    text-align: center;
+    color: #4b0082;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 8px;
+    border: 2px solid #4b0082;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4b0082;
+    color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.back-button:hover {
+    background: #6a1b9a;
+}
+</style>
+
+</head>
+
+<body>
+
+<a href="../index.html" class="back-button">← Home</a>
+
+<div class="container">
+
+<h2>GET Example</h2>
+
+<form method="get" action="get.php">
+
+<input type="text" name="name" placeholder="Name" required>
+<input type="email" name="email" placeholder="Email" required>
+
+<select name="course" required>
+    <option value="">Select Course</option>
+    <option>BCA</option>
+    <option>MCA</option>
+    <option>BSc CS</option>
+    <option>MSc CS</option>
+    <option>BSc IT</option>
+    <option>MSc IT</option>
+    <option>BSc AI & DS</option>
+    <option>MSc AI & DS</option>
+</select>
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

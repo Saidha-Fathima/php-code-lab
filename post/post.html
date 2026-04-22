@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>POST Method - PHP Code Lab</title>
+
+<style>
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: rgba(255,255,255,0.85);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    width: 380px;
+}
+
+h2 {
+    text-align: center;
+    color: #4b0082;
+}
+
+label {
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0 15px 0;
+    border-radius: 8px;
+    border: 2px solid #4b0082;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4b0082;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #6a1b9a;
+}
+
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: #4b0082;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+.back-button:hover {
+    background: #6a1b9a;
+}
+</style>
+
+</head>
+
+<body>
+
+<a href="../index.html" class="back-button">← Home</a>
+
+<div class="container">
+
+<h2>POST Registration</h2>
+
+<form method="post" action="post.php">
+
+<label>Name</label> <input type="text" name="name" required>
+
+<label>Email</label> <input type="email" name="email" required>
+
+<label>Gender</label> <select name="gender" required> <option value="">Select</option> <option>Male</option> <option>Female</option> </select>
+
+<label>Course</label> <select name="course" required> <option value="">Select Course</option> <option>BCA</option> <option>MCA</option> <option>BSc Computer Science</option> <option>MSc Computer Science</option> <option>BSc IT</option> <option>MSc IT</option> <option>BSc AI & DS</option> <option>MSc AI & DS</option> <option>BCom CS</option> <option>MBA</option> </select>
+
+<button type="submit">Register</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

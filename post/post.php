@@ -62,7 +62,7 @@ h2 {
 
 <body>
 
-<a href="post.html" class="back-button">← Back</a>
+<a href="post.html" class="back-button">Back</a>
 
 <div class="container">
 

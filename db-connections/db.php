@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -48,6 +47,8 @@ body {
     color: #00ff99;
     font-family: monospace;
     font-size: 14px;
+    position: relative;
+    white-space: pre-wrap;
 }
 
 /* HEADINGS */
@@ -85,13 +86,39 @@ p {
 .back-button:hover {
     background: #6a1b9a;
 }
+
+/* COPY BUTTON */
+.copy-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #00ff99;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.copy-btn:hover {
+    background: #00cc77;
+}
+
+.copy-btn.copied {
+    background: #4caf50;
+    color: white;
+}
+
+pre {
+    margin-top: 40px;
+}
 </style>
 
 </head>
 
 <body>
 
-<a href="../index.html" class="back-button">← Home</a>
+<a href="../index.html" class="back-button">Home</a>
 
 <div class="container">
 
@@ -116,15 +143,20 @@ p {
 </div>
 
 <div class="right">
+
 <h2>Output 1</h2>
-<pre>
+
+<button class="copy-btn" onclick="copyCode('code1', this)">Copy</button>
+
+<pre id="code1">
 CREATE DATABASE college;
 
 USE college;
 
 DROP DATABASE college;
 
-ALTER DATABASE college; </pre>
+ALTER DATABASE college;
+</pre>
 
 </div>
 
@@ -151,8 +183,12 @@ ALTER DATABASE college; </pre>
 </div>
 
 <div class="right">
+
 <h2>Output 2</h2>
-<pre>
+
+<button class="copy-btn" onclick="copyCode('code2', this)">Copy</button>
+
+<pre id="code2">
 CREATE TABLE student (
     id INT PRIMARY KEY,
     name VARCHAR(50),
@@ -163,7 +199,8 @@ ALTER TABLE student ADD age INT;
 
 DROP TABLE student;
 
-TRUNCATE TABLE student; </pre>
+TRUNCATE TABLE student;
+</pre>
 
 </div>
 
@@ -190,8 +227,12 @@ TRUNCATE TABLE student; </pre>
 </div>
 
 <div class="right">
+
 <h2>Output 3</h2>
-<pre>
+
+<button class="copy-btn" onclick="copyCode('code3', this)">Copy</button>
+
+<pre id="code3">
 INSERT INTO student (id, name, email)
 VALUES (1, 'John', 'john@gmail.com');
 
@@ -201,13 +242,29 @@ UPDATE student
 SET name = 'John Doe'
 WHERE id = 1;
 
-DELETE FROM student WHERE id = 1; </pre>
+DELETE FROM student WHERE id = 1;
+</pre>
 
 </div>
 
 </div>
 
 </div>
+
+<script>
+function copyCode(id, btn) {
+    const code = document.getElementById(id).innerText;
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied";
+    btn.classList.add("copied");
+
+    setTimeout(() => {
+        btn.innerText = "Copy";
+        btn.classList.remove("copied");
+    }, 2000);
+}
+</script>
 
 </body>
 </html>

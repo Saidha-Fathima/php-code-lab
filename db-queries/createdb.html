@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Database - PHP Code Lab</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Times New Roman', Times, serif;
+    background: linear-gradient(45deg, #8ec5fc, #e0c3fc);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px 40px;
+}
+
+.container {
+    display: flex;
+    gap: 25px;
+    width: 95%;
+    max-width: 1100px;
+}
+
+/* LEFT SIDE */
+.box {
+    flex: 1;
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-radius: 15px;
+}
+
+/* RIGHT SIDE */
+.output {
+    flex: 1;
+    background: #1e1e1e;
+    color: #00ff99;
+    padding: 30px;
+    border-radius: 15px;
+    font-family: monospace;
+    line-height: 1.6;
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+    color: #4b0082;
+    margin-bottom: 20px;
+}
+
+.output h2 {
+    color: #00ff99;
+}
+
+/* COPY BUTTON */
+.copy-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: #00ff99;
+    color: black;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: 0.3s;
+}
+
+.copy-btn:hover {
+    background: #00cc77;
+}
+
+.copy-btn.copied {
+    background: #4caf50;
+    color: white;
+}
+
+/* BACK BUTTON */
+.back {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    background: #4b0082;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.back:hover {
+    background: #6a1b9a;
+}
+
+pre {
+    white-space: pre-wrap;
+}
+</style>
+
+</head>
+
+<body>
+
+<a href="../index.html" class="back">Home</a>
+
+<div class="container">
+
+<!-- LEFT SIDE -->
+<div class="box">
+
+<h2>Create Database</h2>
+
+<p><b>Purpose:</b> This PHP script is used to create a new database in MySQL.</p>
+
+<br>
+
+<p><b>Step-by-step Explanation:</b></p>
+
+<ul>
+<li><b>mysqli_connect()</b> → Connects to MySQL server</li>
+<li><b>"localhost"</b> → Server name</li>
+<li><b>"root"</b> → Default username</li>
+<li><b>""</b> → Password (empty in XAMPP)</li>
+<li><b>CREATE DATABASE</b> → SQL command</li>
+<li><b>mysqli_query()</b> → Executes SQL query</li>
+<li><b>mysqli_error()</b> → Shows error if query fails</li>
+<li><b>mysqli_close()</b> → Closes connection</li>
+</ul>
+
+<br>
+
+<p><b>Output:</b></p>
+<p>If successful → Database created</p>
+<p>If error → Error message displayed</p>
+
+</div>
+
+<!-- RIGHT SIDE -->
+<div class="output">
+
+<h2>PHP Code</h2>
+
+<button class="copy-btn" id="copyBtn" onclick="copyCode()">
+Copy
+</button>
+
+<pre id="codeBlock">
+&lt;?php
+$conn=mysqli_connect("localhost","root","","");
+$sql="create database testdb";
+
+if(mysqli_query($conn,$sql))
+echo "database created successfully";
+else
+echo "error creating database".mysqli_error($conn);
+
+mysqli_close($conn);
+?&gt;
+</pre>
+
+</div>
+
+</div>
+
+<script>
+function copyCode() {
+    const code = document.getElementById("codeBlock").innerText;
+    const btn = document.getElementById("copyBtn");
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerHTML = "Copied";
+    btn.classList.add("copied");
+
+    setTimeout(() => {
+        btn.innerHTML = "Copy";
+        btn.classList.remove("copied");
+    }, 2000);
+}
+</script>
+
+</body>
+</html>

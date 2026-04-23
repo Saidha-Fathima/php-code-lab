@@ -1,11 +1,9 @@
 <?php
 $arr = array(10, 2, "welcome", 1.5);
-
 $numbers = array(10, 20, 30, 40, 50);
 ?>
 
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -39,7 +37,7 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* RIGHT SIDE OUTPUT (EDITOR STYLE) */
+/* RIGHT SIDE */
 .output {
     flex: 1;
     background: #1e1e1e;
@@ -49,6 +47,7 @@ body {
     font-family: monospace;
     font-size: 14px;
     overflow-x: auto;
+    position: relative;
 }
 
 h2 {
@@ -58,7 +57,6 @@ h2 {
 
 .output h2 {
     color: #00ff99;
-    font-family: 'Times New Roman', Times, serif;
 }
 
 .back-button {
@@ -71,8 +69,36 @@ h2 {
     text-decoration: none;
     border-radius: 10px;
 }
+
 .back-button:hover {
     background: #6a1b9a;
+}
+
+/* COPY BUTTON */
+.copy-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: #00ff99;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.copy-btn:hover {
+    background: #00cc77;
+}
+
+.copy-btn.copied {
+    background: #4caf50;
+    color: white;
+}
+
+pre {
+    margin-top: 40px;
+    white-space: pre-wrap;
 }
 </style>
 
@@ -80,12 +106,11 @@ h2 {
 
 <body>
 
-<a href="../index.html" class="back-button">← Home</a>
+<a href="../index.html" class="back-button">Home</a>
 
 <div class="container">
 
-<!-- LEFT SIDE: EXPLANATION -->
-
+<!-- LEFT SIDE -->
 <div class="box">
     <h2>Arrays in PHP</h2>
 
@@ -111,16 +136,21 @@ h2 {
     <li>Easy data management</li>
     <li>Used in real-world applications (DB, APIs)</li>
 </ul>
-
 </div>
 
-<!-- RIGHT SIDE: OUTPUT -->
-
+<!-- RIGHT SIDE -->
 <div class="output">
 
 <h2>Array Output</h2>
 
-<?php
+<button class="copy-btn" id="copyBtn" onclick="copyCode()">Copy Code</button>
+
+<pre id="codeBlock">
+&lt;?php
+$arr = array(10, 2, "welcome", 1.5);
+
+$numbers = array(10, 20, 30, 40, 50);
+
 echo "var_dump() output:<br>";
 var_dump($arr);
 
@@ -135,11 +165,29 @@ echo "<br>Foreach Loop Output:<br>";
 foreach ($numbers as $num) {
     echo $num . "<br>";
 }
-?>
+?&gt;
+</pre>
 
 </div>
 
 </div>
+
+<script>
+function copyCode() {
+    const code = document.getElementById("codeBlock").innerText;
+    const btn = document.getElementById("copyBtn");
+
+    navigator.clipboard.writeText(code);
+
+    btn.innerText = "Copied";
+    btn.classList.add("copied");
+
+    setTimeout(() => {
+        btn.innerText = "Copy Code";
+        btn.classList.remove("copied");
+    }, 2000);
+}
+</script>
 
 </body>
 </html>
